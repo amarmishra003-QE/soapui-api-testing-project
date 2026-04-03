@@ -1,0 +1,29 @@
+<con:soapui-project id="sample-project" name="SOAP UI Demo" xmlns:con="http://eviware.com/soapui/config">
+    <con:interface xsi:type="con:WsdlInterface" name="Number Conversion" type="wsdl"
+        bindingName="{http://www.dataaccess.com/webservicesserver/}NumberConversionSoapBinding"
+        soapVersion="1_1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+        <con:endpoints>
+            <con:endpoint>https://www.dataaccess.com/webservicesserver/NumberConversion.wso</con:endpoint>
+        </con:endpoints>
+
+        <con:operation name="NumberToWords">
+            <con:request name="Request 1">
+                <con:request>
+                    <![CDATA[
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:NumberToWords>
+         <web:ubiNum>123</web:ubiNum>
+      </web:NumberToWords>
+   </soapenv:Body>
+</soapenv:Envelope>
+                    ]]>
+                </con:request>
+            </con:request>
+        </con:operation>
+
+    </con:interface>
+</con:soapui-project>
